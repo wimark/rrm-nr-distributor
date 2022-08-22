@@ -23,7 +23,7 @@ start_service() {
 	procd_open_instance
 	procd_set_param command /bin/sh "/usr/bin/rrm_nr"
 	procd_open_trigger
-	procd_add_reload_trigger "wireless"
+	procd_add_config_trigger "config.change" "wireless" /etc/init.d/rrn_nr restart
 	procd_close_trigger
 	#https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?search=5247
 	procd_add_mdns "rrm_nr" "udp" "5247" "${rrm_own:1}" 
