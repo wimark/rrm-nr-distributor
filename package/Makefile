@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rrm-nr-distributor
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
 
@@ -34,7 +34,10 @@ define Build/Compile
 endef
 
 define Package/rrm-nr-distributor/install
-        $(CP) ../files/* $(1)/
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_BIN) ../files/etc/init.d/rrm_nr $(1)/etc/init.d
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_BIN) ../files/usr/bin/rrm_nr $(1)/usr/bin
 endef
 
 $(eval $(call BuildPackage,rrm-nr-distributor))
