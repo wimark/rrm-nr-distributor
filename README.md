@@ -20,15 +20,17 @@
 
  - Download Openwrt SDK, add feed, compile, indexing for opkg
 
- `wget -q -N -c https://downloads.openwrt.org/releases/22.03.0/targets/ath79/generic/openwrt-sdk-22.03.0-ath79-generic_gcc-11.2.0_musl.Linux-x86_64.tar.xz`
- `tar -x -f openwrt-sdk-22.03.0-ath79-generic_gcc-11.2.0_musl.Linux-x86_64.tar.xz`
- `echo "src-git rrm_nr https://github.com/wimark/rrm-nr-distributor.git" > feeds.conf`
- `./scripts/feeds update`
- `./scripts/feeds install -a`
- `echo "CONFIG_PACKAGE_rrm-nr-distributor=m" >> .config`
- `make defconfig`
- `make package/feeds/rrm_nr/package/compile`
- `make package/index`
+```
+wget -q -N -c https://downloads.openwrt.org/releases/22.03.0/targets/ath79/generic/openwrt-sdk-22.03.0-ath79-generic_gcc-11.2.0_musl.Linux-x86_64.tar.xz
+tar -x -f openwrt-sdk-22.03.0-ath79-generic_gcc-11.2.0_musl.Linux-x86_64.tar.xz 
+echo "src-git rrm_nr https://github.com/wimark/rrm-nr-distributor.git" > feeds.conf
+./scripts/feeds update
+./scripts/feeds install -a
+echo "CONFIG_PACKAGE_rrm-nr-distributor=m" >> .config
+make defconfig
+make package/feeds/rrm_nr/package/compile
+make package/index
+```
 
 ## Known issues
 
