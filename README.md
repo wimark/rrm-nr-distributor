@@ -22,7 +22,8 @@
 
 ```
 wget -q -N -c https://downloads.openwrt.org/releases/22.03.0/targets/ath79/generic/openwrt-sdk-22.03.0-ath79-generic_gcc-11.2.0_musl.Linux-x86_64.tar.xz
-tar -x -f openwrt-sdk-22.03.0-ath79-generic_gcc-11.2.0_musl.Linux-x86_64.tar.xz 
+tar -x -f openwrt-sdk-22.03.0-ath79-generic_gcc-11.2.0_musl.Linux-x86_64.tar.xz
+cd openwrt-sdk-22.03.0-ath79-generic_gcc-11.2.0_musl.Linux-x86_64
 echo "src-git rrm_nr https://github.com/wimark/rrm-nr-distributor.git" > feeds.conf
 ./scripts/feeds update
 ./scripts/feeds install -a
